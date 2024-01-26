@@ -1,3 +1,7 @@
+<?php
+$vote = $_GET["vote"];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,7 +56,38 @@
 ?>
 
 <body>
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">Hotels</th>
+                <th scope="col">Description</th>
+                <th scope="col">Parking</th>
+                <th scope="col">Vote</th>
+                <th scope="col">Distance to center</th>
 
+                </tr>
+            </thead>
+        <tbody>
+            <?php
+            
+            foreach($hotels as $hotel){
+                if($vote == $hotel["vote"]){
+                    echo "<tr>
+                    
+                    <td>".$hotel["name"] ."</td>
+                    <td>".$hotel["description"]."</td>
+                    <td>".$hotel["parking"]."</td>
+                    <td>".$hotel["vote"]."</td>
+                    <td>".$hotel["distance_to_center"]."</td>
+                    </tr>";
+                }
+
+            }
+
+            ?>
+        </tbody>
+    </table>
+    <a href="ricerca.php">Back to page</a>
 </body>
 
 </html>
